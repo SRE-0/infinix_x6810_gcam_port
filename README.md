@@ -29,5 +29,15 @@ La biblioteca caché permanece en Git LFS. Los ZIP y checksums se generan en
 
 La evidencia previa corresponde a Android 16 GSI. El instalador admite SDK 30+,
 pero eso no demuestra que el APK, permisos y montaje funcionen en Android 11.
-El XML recomendado es un overlay parcial para **V18**, no una configuración
-automáticamente aplicable a **V32**.
+Puedes instalar cualquier GCam externa compatible como APK normal, sin este
+módulo de sistema. Su builder fija V32 únicamente para el release de sistema.
+El propietario confirma que
+[MGC_9.7.047_V32_MGC.apk](https://1-dontsharethislink.celsoazevedo.com/file/filesc/MGC_9.7.047_V32_MGC.apk)
+(`com.android.MGC_9_7_047`) funciona perfectamente con
+[x6810-gcam-bsg-9.7-v32-recommended.xml](profiles/x6810-gcam-bsg-9.7-v32-recommended.xml)
+en Android 16 GSI. OIS del teleobjetivo también se probó y funciona correctamente.
+[Guía del perfil recomendado](profiles/README.md).
+
+El XML V32 es el perfil recomendado actual, conserva las 755 preferencias
+aportadas por el propietario y se incluye como archivo separado en los releases.
+El pequeño overlay V18 se conserva sólo como referencia histórica.

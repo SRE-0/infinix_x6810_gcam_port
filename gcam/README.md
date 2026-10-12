@@ -9,6 +9,8 @@ hash-verified BSG 9.7 V32 original signed APK as a privileged system app, grants
 permissions and special accesses, and retains the native cache fix. The
 `apk-analysis/` and `startup/` directories preserve tooling and investigations.
 
-GCam photo settings are documented separately for BSG 9.7 V18 under
-`profiles/`; that XML does not install with or configure the V32 system-app
-module. See the [current GCam guide](../docs/INSTALLATION.md).
+The recommended profile is now the owner-provided BSG 9.7 V32 snapshot in
+`profiles/x6810-gcam-bsg-9.7-v32-recommended.xml`; the V18 overlay is historical.
+The XML is imported manually and does not apply automatically at system-module
+boot. Any compatible external GCam can be installed independently. See the
+[profile guide](../profiles/README.md) and [installation](../docs/INSTALLATION.md).

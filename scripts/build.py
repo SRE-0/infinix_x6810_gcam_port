@@ -26,7 +26,7 @@ def main():
     output = args.output / f'x6810-gcam-system-{metadata["version"]}.zip'
     subprocess.run([sys.executable, str(module / 'build.py'), str(args.apk.resolve()), str(output.resolve()),
                     '--native', str(module / 'payload/libgcastartup-cache.so')], check=True)
-    overlay = args.output / 'x6810-gcam-bsg-v18-recommended.xml'
+    overlay = args.output / 'x6810-gcam-bsg-9.7-v32-recommended.xml'
     shutil.copyfile(ROOT / 'profiles' / overlay.name, overlay)
     records = [{'file': p.name, 'sha256': sha(p)} for p in (output, overlay)]
     (args.output / 'SHA256SUMS.txt').write_text(''.join(f'{r["sha256"]}  {r["file"]}\n' for r in records), encoding='ascii', newline='\n')

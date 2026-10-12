@@ -1,5 +1,11 @@
 # GCam BSG 9.7 V32 - instalador APatch 0.7.0
 
+Este instalador de sistema es opcional. Puedes instalar cualquier GCam externa
+compatible como APK normal, sin él. El propietario confirma que V32 funciona
+perfectamente con [el perfil recomendado](../../profiles/README.md), incluido
+OIS del teleobjetivo probado y funcionando en Android 16 GSI. El XML se carga
+manualmente y no se aplica al instalar el ZIP.
+
 Módulo independiente para Infinix Zero X Neo X6810-GL. El instalador admite
 Android 11 o posterior; sólo hay evidencia histórica en Android 16 GSI.
 Incluye el APK original firmado proporcionado con `--apk`, sin modificar ni volver a firmar,
