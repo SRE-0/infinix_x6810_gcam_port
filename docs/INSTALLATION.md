@@ -1,35 +1,13 @@
-# Instalación: GCam externa o módulo de sistema opcional
+**English** | [Español](es/INSTALLATION.md)
 
-Puedes instalar cualquier GCam externa compatible como APK de usuario, sin el
-módulo GCam de sistema. El módulo RAW/OIS/HD48 y su variante flash funcionan al
-nivel de Camera2/vendor y no exigen una app concreta. La compatibilidad depende
-del port y Android: no se afirma que todas las APK existentes funcionen.
+# External app or optional system module
 
-La [MGC_9.7.047_V32_MGC.apk](https://1-dontsharethislink.celsoazevedo.com/file/filesc/MGC_9.7.047_V32_MGC.apk),
-paquete `com.android.MGC_9_7_047`, funciona perfectamente con
-[el perfil recomendado V32](../profiles/README.md), según pruebas confirmadas por
-el propietario en Android 16 GSI. OIS del teleobjetivo también está probado y
-funciona correctamente. Carga el XML desde la gestión de configuraciones BSG;
-guardar tu configuración previa permite volver a ella.
+Any compatible external GCam can be installed as a normal APK without this system module. The RAW/OIS/HD48 and flash modules do not require a particular app. BSG `MGC_9.7.047_V32_MGC.apk` (`com.android.MGC_9_7_047`) was tested and works perfectly with [the recommended V32 profile](../profiles/README.md) on Android 16 GSI. Telephoto OIS was tested and works correctly.
 
-## Instalación de sistema opcional
+For the optional system installation, run `python scripts/build.py`, check `SHA256SUMS.txt`, install `x6810-gcam-system-0.7.0.zip` through APatch and reboot. The builder uses the retained original signed APK by default, or accepts that same APK with `--apk`. Other ports can be installed manually but are not accepted by this pinned system builder.
 
-Construye con `python scripts/build.py --apk /ruta/al/APK-original.apk`, verifica
-SHA256SUMS e instala `x6810-gcam-system-0.7.0.zip` desde APatch. Reinicia para que
-PackageManager escanee el overlay priv-app. El constructor exige el APK original
-V32 firmado y la biblioteca nativa de caché exacta; no admite otra GCam, a
-diferencia de la instalación externa manual.
+PackageManager scans the priv-app overlay at boot. The module exposes 21 ARM64 libraries with the verified cache replacement for `libgcastartup.so`, preserves app data, verifies installed APK identity, and configures permissions. Runtime permissions are version-dependent; special accesses include all-files storage, settings modification and Do Not Disturb policy access. See the [module details](../gcam/apatch-startup/README.md). The original APK signature is preserved; it is not platform-signed.
 
-El módulo concede permisos runtime declarados y accesos especiales, conserva
-datos existentes y comprueba hashes del APK instalado. Revisa
-[estado del módulo](GCAM_SYSTEM_070.md) para la lista y sus efectos. El XML V32
-se entrega como archivo separado y se importa manualmente; no se aplica al boot.
-Desactiva/elimina `x6810_gcam_startup` y reinicia para retirar el overlay.
-Los datos existentes no se borran automáticamente y los accesos especiales
-concedidos pueden seguir activos: revócalos desde Ajustes si lo deseas.
+The V32 XML is delivered separately and imported manually; installation does not apply it automatically. Disable/remove `x6810_gcam_startup` and reboot to remove the overlay. Existing data is not automatically deleted; special accesses can persist and can be revoked in Android Settings.
 
-La evidencia real corresponde a Android 16 GSI. El instalador admite SDK 30+,
-pero Android 11 requiere validación del APK, permisos, ABI y arranque. Los
-paquetes reorganizados no se probaron de nuevo en hardware en esta sesión.
-Para RAW/OIS/HD48/flash instala una variante del
-[otro proyecto](https://github.com/SRE-0/infinix_x6810_raw) por separado.
+The installer accepts API 30+, but only Android 16 GSI has device evidence. Android 11 APK, permission, ABI and boot behavior remain unverified. This documentation revision did not run new mobile tests. Install [RAW/OIS/HD48 or flash](https://github.com/SRE-0/infinix_x6810_raw) separately.

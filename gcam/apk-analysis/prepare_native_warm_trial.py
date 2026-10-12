@@ -1,4 +1,5 @@
 """Prepare a bounded native-only worker on top of retained 0.2.0 sources."""
+from helper_templates import helper_path
 from pathlib import Path
 import argparse
 import shutil
@@ -15,5 +16,5 @@ needle = '.method public final onCreate()V\n    .locals 32\n'
 if s.count(needle) != 1 or 'Lx6810/gcam/NativeProfileWarm;' in s:
     raise ValueError('Unexpected application hook')
 app.write_text(s.replace(needle, needle + '\n    invoke-static {}, Lx6810/gcam/NativeProfileWarm;->start()V\n'), encoding='utf-8')
-shutil.copyfile(Path(__file__).with_name('NativeProfileWarm.smali'), target/'x6810/gcam/NativeProfileWarm.smali')
+shutil.copyfile(helper_path('NativeProfileWarm.smali'), target/'x6810/gcam/NativeProfileWarm.smali')
 print('Prepared one native-only background initialization; no UI or preference access')

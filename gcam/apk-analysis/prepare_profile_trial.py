@@ -3,6 +3,7 @@
 The optimization caches profile queries only within one hir.J call. No UI or
 HAL work is moved to another thread. Keep original extraction untouched.
 """
+from helper_templates import helper_path
 import argparse
 from pathlib import Path
 import shutil
@@ -23,7 +24,7 @@ shutil.copytree(a.original/'smali_classes2', secondary)
 helper = secondary/'x6810/gcam'
 helper.mkdir(parents=True, exist_ok=True)
 for name in ('StartupTimeline.smali', 'ProfileScope.smali'):
-    shutil.copyfile(Path(__file__).with_name(name), helper/name)
+    shutil.copyfile(helper_path(name), helper/name)
 recorder = secondary/'mqt.smali'
 text = recorder.read_text(encoding='utf-8')
 needle = '.method public final j(Ljava/lang/Enum;JLmqs;)V\n    .locals 4\n'

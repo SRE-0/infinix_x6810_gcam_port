@@ -1,4 +1,5 @@
 """Prepare the optimized APK's secondary DEX without diagnostic event logging."""
+from helper_templates import helper_path
 import argparse
 from pathlib import Path
 import shutil
@@ -12,5 +13,5 @@ if a.output.resolve() == a.original.resolve() or a.original.resolve() in a.outpu
 shutil.copytree(a.original/'smali_classes2', a.output)
 dest = a.output/'x6810/gcam/ProfileScope.smali'
 dest.parent.mkdir(parents=True, exist_ok=True)
-shutil.copyfile(Path(__file__).with_name('ProfileScope.smali'), dest)
+shutil.copyfile(helper_path('ProfileScope.smali'), dest)
 print('Prepared original secondary DEX plus only the scoped cache helper')

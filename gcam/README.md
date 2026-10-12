@@ -1,16 +1,7 @@
-# GCam: release y laboratorios
+**English** | [Espa?ol](README.es.md)
 
-Guía vigente: [instalación](../docs/INSTALLATION.md) e
-[índice de investigación](../docs/RESEARCH.md). RAW/OIS/flash está en
-[infinix_x6810_raw](https://github.com/SRE-0/infinix_x6810_raw).
+# GCam release and laboratories
 
-`apatch-startup/` contains the separate APatch module that installs the
-hash-verified BSG 9.7 V32 original signed APK as a privileged system app, grants its declared runtime
-permissions and special accesses, and retains the native cache fix. The
-`apk-analysis/` and `startup/` directories preserve tooling and investigations.
+The current release is [the optional system module](apatch-startup/README.md). [Installation](../docs/INSTALLATION.md), [recommended V32 profile](../profiles/README.md) and [research index](../docs/RESEARCH.md) are the maintained references.
 
-The recommended profile is now the owner-provided BSG 9.7 V32 snapshot in
-`profiles/x6810-gcam-bsg-9.7-v32-recommended.xml`; the V18 overlay is historical.
-The XML is imported manually and does not apply automatically at system-module
-boot. Any compatible external GCam can be installed independently. See the
-[profile guide](../profiles/README.md) and [installation](../docs/INSTALLATION.md).
+`apk-analysis/` and `startup/` retain historical tools and reports; decoded inputs are generated only in ignored local storage. [Local workflow](../docs/DECOMPILATION.md). RAW/OIS/HD48/flash lives in [its own repository](https://github.com/SRE-0/infinix_x6810_raw).

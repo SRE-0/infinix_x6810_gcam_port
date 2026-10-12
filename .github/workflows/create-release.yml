@@ -6,10 +6,6 @@ on:
         description: Unique release tag
         required: true
         type: string
-      apk_url:
-        description: HTTPS URL for the original signed BSG V32 APK (SHA-256 verified)
-        required: true
-        type: string
 permissions:
   contents: read
 jobs:
@@ -26,14 +22,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/validate.py
-      - name: Obtain original APK and build
-        env:
-          APK_URL: ${{ inputs.apk_url }}
-        run: |
-          [[ "$APK_URL" == https://* ]] || exit 1
-          mkdir -p dist/inputs
-          curl --fail --location --proto '=https' --proto-redir '=https' --max-time 600 "$APK_URL" -o dist/inputs/original.apk
-          python scripts/build.py --apk dist/inputs/original.apk
+      - run: python scripts/build.py
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}

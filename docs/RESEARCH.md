@@ -1,24 +1,19 @@
-# Índice de investigación
+**English** | [Español](es/RESEARCH.md)
 
-Los informes fechados y los laboratorios preservan los ensayos anteriores; sus
-frases «estado vigente» se refieren a su fecha, no al release actual.
+# Historical research index
 
-| Tema | Referencia |
+The current system module uses original signed BSG V32 plus the native cache fix; historical DEX/panel experiments are not included. The recommended profile is [V32](../profiles/README.md); V18 remains historical.
+
+| Topic | Original report |
 |---|---|
-| Estado actual 0.7.0 | [App original como sistema](GCAM_SYSTEM_070.md) |
-| Auditoría DEX/ELF | [Auditoría APK](GCAM_APK_FULL_AUDIT_20261011.md) |
-| CRC y extracción nativa | [CRC](GCAM_CRC_FIX_20261011.md) |
-| Caché GPU del segmentador | [Caché](GCAM_SEGMENTER_CACHE_FIX_20261011.md) |
-| Cambios históricos del panel | [Panel](GCAM_PANEL_OPTIMIZATION_20261011.md) |
-| Perfil fotográfico V18 histórico | [Perfil](GCAM_PHOTO_PROFILES.md) |
-| Cuaderno de ensayos | [Cuaderno](GCAM_STARTUP_LAB_NOTEBOOK_20261012.md) |
+| System module 0.7.0 | [System state](GCAM_SYSTEM_070.md) |
+| DEX/ELF investigation | [APK audit](GCAM_APK_FULL_AUDIT_20261011.md) |
+| Native extraction and CRC | [CRC investigation](GCAM_CRC_FIX_20261011.md) |
+| Segmenter GPU cache | [Cache fix](GCAM_SEGMENTER_CACHE_FIX_20261011.md) |
+| Earlier panel modifications | [Panel investigation](GCAM_PANEL_OPTIMIZATION_20261011.md) |
+| Earlier V18 preferences | [Photo profiles](GCAM_PHOTO_PROFILES.md) |
+| Experiment notebook | [Notebook](GCAM_STARTUP_LAB_NOTEBOOK_20261012.md) |
 
-Los scripts de laboratorio permanecen separados de los comandos de release;
-los artefactos APK antiguos y los resultados locales no se publican en Git.
-Algunos enlaces anteriores apuntan a documentos del proyecto combinado; el
-índice actual y el [repo RAW](https://github.com/SRE-0/infinix_x6810_raw)
-sustituyen esa navegación. No se ejecutaron pruebas móviles durante la migración.
+These dated reports retain their original language and describe the state at their date. Their decoded input paths are local prerequisites, not files shipped by this repository. The historical modified 0.5.0 APK stays in ignored local storage; the retained release APK is the signed V32 used by 0.7.0. [Local decompilation workflow](DECOMPILATION.md).
 
-La referencia actual es [el perfil V32](../profiles/README.md), aportado y
-confirmado por el propietario. El módulo RAW/OIS/HD48 y el módulo flash admiten
-GCam externa independiente; la instalación GCam de sistema es opcional.
+The independent [RAW/OIS/HD48/flash project](https://github.com/SRE-0/infinix_x6810_raw) supports an external GCam without the system module. No new mobile experiments were performed during this reorganization.

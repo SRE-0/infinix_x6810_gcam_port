@@ -68,6 +68,14 @@ with zipfile.ZipFile(a.output, 'w', compression=zipfile.ZIP_DEFLATED, compressle
         info.create_system = 3
         info.external_attr = (0o100755 if name.endswith('.sh') else 0o100644)<<16
         archive.writestr(info, data)
+    project_root = Path(__file__).resolve().parents[2]
+    for notice in ('DISCLAIMER.md', 'THIRD_PARTY_NOTICES.md'):
+        archive.write(project_root / notice, notice)
+    archive.write(project_root / 'docs/LEGAL.md', 'docs/LEGAL.md')
+    for notice in ('LEGAL.md', 'DISCLAIMER.md', 'THIRD_PARTY_NOTICES.md'):
+        archive.write(project_root / 'docs/es' / notice, 'docs/es/' + notice)
+    for notice in sorted((project_root / 'legal/gcam-apk').iterdir()):
+        archive.write(notice, 'legal/gcam-apk/' + notice.name)
     archive.write(a.apk, 'system/priv-app/X6810GCam/X6810GCam.apk', compress_type=zipfile.ZIP_STORED)
     with zipfile.ZipFile(a.apk) as apk_archive:
         for member in native_members:

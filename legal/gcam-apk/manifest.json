@@ -1,0 +1,23 @@
+{
+  "apk_sha256": "132e18273b3aafdb93e851f5db88156bd4f82c5032ad8de6594fa5a49ea6fe89",
+  "resources": [
+    {
+      "apk_resource": "res/raw/third_party_licenses",
+      "file": "third_party_licenses.txt",
+      "sha256": "489bc0aa1b0e1e245594072ac4ae0591de9926f9e0adaf55acb29b684d6e2fd6",
+      "bytes": 3955382
+    },
+    {
+      "apk_resource": "res/raw/third_party_licenses_metadata",
+      "file": "third_party_licenses_metadata.txt",
+      "sha256": "ed260e03fa1340b8a55d5ee7dcf5f0f70267dc99dd543d12980097ca42dff1bb",
+      "bytes": 11178
+    },
+    {
+      "apk_resource": "res/raw/third_party_license_metadata",
+      "file": "third_party_license_metadata.txt",
+      "sha256": "d66e007a8893b75126dc89dedb68387795ce976f193396b723ed47f901f11b00",
+      "bytes": 205
+    }
+  ]
+}

@@ -1,80 +1,21 @@
-# GCam BSG 9.7 V32 - instalador APatch 0.7.0
+**English** | [Espa?ol](README.es.md)
 
-Este instalador de sistema es opcional. Puedes instalar cualquier GCam externa
-compatible como APK normal, sin él. El propietario confirma que V32 funciona
-perfectamente con [el perfil recomendado](../../profiles/README.md), incluido
-OIS del teleobjetivo probado y funcionando en Android 16 GSI. El XML se carga
-manualmente y no se aplica al instalar el ZIP.
+# BSG V32 ? APatch system module 0.7.0
 
-Módulo independiente para Infinix Zero X Neo X6810-GL. El instalador admite
-Android 11 o posterior; sólo hay evidencia histórica en Android 16 GSI.
-Incluye el APK original firmado proporcionado con `--apk`, sin modificar ni volver a firmar,
-verificado por SHA-256:
-`132e18273b3aafdb93e851f5db88156bd4f82c5032ad8de6594fa5a49ea6fe89`.
+Optional system installation for X6810-GL. BSG V32 and telephoto OIS were tested and work correctly on Android 16 GSI with [the recommended profile](../../profiles/README.md). Any compatible external GCam can instead be installed normally; this module is independent of RAW.
 
-## Qué instala
+The original signed APK is retained in `payload/MGC_9.7.047_V32_MGC.apk` and preserved unchanged in the ZIP. The 21 ARM64 libraries are extracted separately; only `libgcastartup.so` is replaced by the verified cache-fix library. Historical 0.5.0 DEX/panel patches are not applied.
 
-- `system/priv-app/X6810GCam/X6810GCam.apk`: instalación automática en el siguiente arranque.
-- Las 21 bibliotecas ARM64 del APK. Solo `libgcastartup.so` se sustituye por el arreglo verificado de caché del segmentador.
-- XML de permisos runtime y lista privilegiada exclusivamente para `INSTALL_PACKAGE_UPDATES`, declarado por este APK.
-- Concesión inicial de los 11 permisos runtime declarados, según la versión de Android.
-- Acceso completo al almacenamiento (`MANAGE_EXTERNAL_STORAGE`), modificación de ajustes (`WRITE_SETTINGS`) y acceso a política No molestar.
+## Build and install
 
-Android concede los permisos normales y el permiso propio de firma. No se
-conceden permisos ausentes del Manifest. El paquete queda como app privilegiada,
-pero conserva su firma original: no adquiere la firma de la plataforma.
+From the repository root, run `python scripts/build.py`, install the generated ZIP through APatch and reboot. The builder validates the original APK SHA-256, cache-library SHA-256, 21-library inventory, permission XML and ZIP. The installer rejects a different installed APK version. See [installation and recovery](../../docs/INSTALLATION.md).
 
-Si GCam ya está instalada con el mismo APK, Android puede mantenerla en
-`/data/app` como `SYSTEM` + `UPDATED_SYSTEM_APP` + `PRIVILEGED`. Esto sigue siendo
-una app de sistema. Se conservan sus datos y se monta únicamente el arreglo
-nativo sobre su biblioteca original, verificando origen y propietario. No se
-eliminan actualizaciones ni datos para forzar un cambio de ruta.
+The installer admits API 30+; Android 11 behavior is unverified. Device evidence is Android 16 GSI, and this repackaging has not had new hardware validation. Import the recommended XML manually; it is not applied at boot.
 
-Esta versión usa el APK original: no aplica los parches DEX de inicio/panel de
-0.5.0. Sí conserva el arreglo nativo de caché. Es independiente del módulo RAW.
+## Permissions and mounting
 
-## Construcción
+The module installs `system/priv-app/X6810GCam/X6810GCam.apk`, supplies libraries and runtime-permission XML, and allows only the declared privileged `INSTALL_PACKAGE_UPDATES` permission. Initial grants cover the 11 declared runtime permissions as supported by the Android version. Special accesses include `MANAGE_EXTERNAL_STORAGE`, `WRITE_SETTINGS` and Do Not Disturb policy access. Missing manifest permissions are not invented. The app retains its original signature and does not become platform-signed.
 
-Desde la raíz del repositorio:
+An existing identical user APK can remain in `/data/app` with system/updated-system/privileged flags. Its data is preserved, and the native fix is mounted over the verified original library after source and ownership checks. Updates and data are not deleted to force a path change. Review `customize.sh`, `service.sh`, `activate.sh`, `permissions.sh` and `uninstall.sh` for exact operations.
 
-```powershell
-python scripts/build.py --apk /ruta/MGC_9.7.047_V32_MGC.apk
-```
-
-El constructor verifica el APK, todas las bibliotecas, ambas listas de permisos
-y la integridad del ZIP. El instalador rechaza una versión instalada diferente.
-
-## Instalación y diagnóstico
-
-Instala el ZIP desde APatch y reinicia. No requiere instalar GCam manualmente.
-El primer arranque puede tardar durante la compilación ART; los permisos se
-configuran antes y no dependen de su éxito. La compilación completa solo se
-repite si cambia la ruta, el payload o la compilación de Android.
-
-En `/data/adb/modules/x6810_gcam_startup/`:
-
-- `permissions-status.txt`: concesiones y verificación del permiso privilegiado.
-- `status.txt`: hashes, modo activo y resultado de optimización.
-- `.permissions-granted`: se crea solamente al completar las concesiones.
-
-Las concesiones se hacen una vez por versión/UID/SDK para respetar revocaciones
-posteriores. Si quieres repetirlas, elimina `.permissions-granted` y reinicia.
-La automatización inicial apunta al usuario principal (0).
-
-Para retirar el overlay, desactiva/elimina el módulo y reinicia. Si existía una
-instalación en `/data/app`, queda disponible; una instalación exclusivamente
-suministrada por el módulo deja de estar disponible. Los accesos especiales
-concedidos no se revocan automáticamente al retirar el módulo: pueden retirarse
-desde Ajustes. No uses `uninstall-system-updates` para cambiar la ruta sin un
-respaldo: puede eliminar los datos.
-
-## English
-
-APatch 0.7.0 installs the original signed BSG 9.7 V32 as a privileged system app,
-with all 21 ARM64 libraries and the verified native segmenter cache fix. It
-grants declared runtime permissions, the allowlisted `INSTALL_PACKAGE_UPDATES`
-permission, all-files access, write-settings access, and DND policy access.
-Existing same-version installations and app data are preserved. Android may
-retain the data APK as an updated privileged system app. Original APK signature
-is preserved; earlier modified-DEX optimizations are not included. Install the
-ZIP and reboot. User 0 is supported; subsequent user revocations are respected.
+Disable/remove `x6810_gcam_startup` and reboot to remove the overlay. Existing app data and some special-access grants can remain; revoke them in Settings if desired. [Disclaimer](../../DISCLAIMER.md) and [third-party notices](../../THIRD_PARTY_NOTICES.md).

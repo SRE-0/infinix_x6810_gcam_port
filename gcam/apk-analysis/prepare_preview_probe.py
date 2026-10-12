@@ -1,4 +1,5 @@
 """Prepare an isolated diagnostic APK: existing timing events and startup call sites."""
+from helper_templates import helper_path
 import argparse
 import json
 from pathlib import Path
@@ -99,6 +100,6 @@ if text.count(needle) != 1:
 path.write_text(text.replace(needle, needle+'\n    invoke-static {p0, p1, p2, p3}, Lx6810/gcam/StartupTimeline;->record(Lmqt;Ljava/lang/Enum;J)V\n'), encoding='utf-8')
 dest = a.output/'smali_classes2/x6810/gcam/StartupTimeline.smali'
 dest.parent.mkdir(parents=True, exist_ok=True)
-shutil.copyfile(Path(__file__).with_name('StartupTimeline.smali'), dest)
+shutil.copyfile(helper_path('StartupTimeline.smali'), dest)
 (a.output/'sites.json').write_text(json.dumps(catalog, indent=2)+'\n', encoding='utf-8')
 print('Prepared diagnostic sites:', len(catalog))

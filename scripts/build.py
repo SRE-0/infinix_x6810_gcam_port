@@ -1,4 +1,4 @@
-"""Build the independent GCam system module from an explicitly supplied APK."""
+"""Build the independent GCam system module from the retained original signed APK."""
 import argparse
 import hashlib
 import json
@@ -15,7 +15,7 @@ def sha(path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--apk', type=Path, required=True, help='Original signed BSG 9.7 V32 APK')
+    parser.add_argument('--apk', type=Path, default=ROOT / 'gcam/apatch-startup/payload/MGC_9.7.047_V32_MGC.apk', help='Original signed BSG 9.7 V32 APK (retained payload by default)')
     parser.add_argument('--output', type=Path, default=ROOT / 'dist/releases')
     args = parser.parse_args()
     if not args.apk.is_file():

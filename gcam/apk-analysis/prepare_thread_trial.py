@@ -1,4 +1,5 @@
 """Prepare a thread-prewarm DEX experiment in an isolated smali copy."""
+from helper_templates import helper_path
 import argparse
 from pathlib import Path
 import json
@@ -22,7 +23,7 @@ for name in CLASSES:
     if not any((folder/(name+'.smali')).exists() for folder in a.original_smali.glob('smali*')):
         raise ValueError('Class not verified in APK: ' + name)
 app.write_text(text.replace(needle, needle + '\n    invoke-static/range {p0 .. p0}, Lx6810/gcam/StartupWorker;->start(Landroid/content/Context;)V\n'), encoding='utf-8')
-worker = (Path(__file__).parent/'StartupWorker.smali').read_text(encoding='utf-8')
+worker = helper_path('StartupWorker.smali').read_text(encoding='utf-8')
 preloads = '\n'.join('    const-string v3, "'+name+'"\n    invoke-direct {p0, v3}, Lx6810/gcam/StartupWorker;->load(Ljava/lang/String;)V' for name in CLASSES)
 dest = target/'x6810/gcam/StartupWorker.smali'
 dest.parent.mkdir(parents=True, exist_ok=True)
