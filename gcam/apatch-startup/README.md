@@ -1,4 +1,4 @@
-**English** | [Espa?ol](README.es.md)
+**English** | [Español](README.es.md)
 
 # BSG V32 ? APatch system module 0.7.0
 

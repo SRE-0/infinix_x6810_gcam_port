@@ -1,4 +1,4 @@
-[English](README.md) | **Espa?ol**
+[English](README.md) | **Español**
 
 # GCam: release y laboratorios
 

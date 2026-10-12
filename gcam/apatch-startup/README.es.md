@@ -1,4 +1,4 @@
-[English](README.md) | **Espa?ol**
+[English](README.md) | **Español**
 
 # GCam BSG 9.7 V32 - instalador APatch 0.7.0
 

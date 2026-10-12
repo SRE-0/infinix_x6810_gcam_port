@@ -1,4 +1,4 @@
-[English](README.md) | **Espa?ol**
+[English](README.md) | **Español**
 
 # Investigación de arranque de BSG 9.7
 

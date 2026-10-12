@@ -1,4 +1,4 @@
-[English](README.md) | **Espa?ol**
+[English](README.md) | **Español**
 
 # Análisis del APK instalado — 2026-10-11
 

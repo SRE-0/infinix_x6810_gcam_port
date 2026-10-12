@@ -1,4 +1,4 @@
-**English** | [Espa?ol](README.es.md)
+**English** | [Español](README.es.md)
 
 # APK analysis tools
 
