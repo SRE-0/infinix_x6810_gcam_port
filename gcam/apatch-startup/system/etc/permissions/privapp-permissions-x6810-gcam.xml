@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.android.MGC_9_7_047">
+        <permission name="android.permission.INSTALL_PACKAGE_UPDATES"/>
+    </privapp-permissions>
+</permissions>

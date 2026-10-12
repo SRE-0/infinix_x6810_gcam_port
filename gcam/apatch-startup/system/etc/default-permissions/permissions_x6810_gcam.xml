@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+    <exception package="com.android.MGC_9_7_047">
+        <permission name="android.permission.CAMERA" fixed="false"/>
+        <permission name="android.permission.RECORD_AUDIO" fixed="false"/>
+        <permission name="android.permission.ACCESS_COARSE_LOCATION" fixed="false"/>
+        <permission name="android.permission.ACCESS_FINE_LOCATION" fixed="false"/>
+        <permission name="android.permission.NEARBY_WIFI_DEVICES" fixed="false"/>
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="false"/>
+        <permission name="android.permission.WRITE_EXTERNAL_STORAGE" fixed="false"/>
+        <permission name="android.permission.READ_MEDIA_IMAGES" fixed="false"/>
+        <permission name="android.permission.READ_MEDIA_VIDEO" fixed="false"/>
+        <permission name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" fixed="false"/>
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
+    </exception>
+</exceptions>

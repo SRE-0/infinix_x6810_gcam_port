@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="ChromaOffset_fmov_3f80_0000_pthcr_key_0">1.0</string>
+    <string name="ChromaScale_fmov_3f80_0000_pthcr_key_0">1.0</string>
+    <string name="LumaOffset_fmov_3f80_0000_pthcr_key_0">1.0</string>
+    <string name="LumaScale_fmov_3f80_0000_pthcr_key_0">1.0</string>
+    <string name="ChromaOffset_fmov_3f80_0000_pthcr_key_1">1.0</string>
+    <string name="ChromaScale_fmov_3f80_0000_pthcr_key_1">1.0</string>
+    <string name="LumaOffset_fmov_3f80_0000_pthcr_key_1">1.0</string>
+    <string name="LumaScale_fmov_3f80_0000_pthcr_key_1">1.0</string>
+    <string name="ChromaOffset_fmov_3f80_0000_pthcr_key_2">1.0</string>
+    <string name="ChromaScale_fmov_3f80_0000_pthcr_key_2">1.0</string>
+    <string name="LumaOffset_fmov_3f80_0000_pthcr_key_2">1.0</string>
+    <string name="LumaScale_fmov_3f80_0000_pthcr_key_2">1.0</string>
+    <string name="pref_af_mode_back">0</string>
+    <string name="pref_camera_gawb_b_ns">0</string>
+    <string name="pref_camera_gawb_b_photo">0</string>
+    <string name="pref_camera_hdr_plus_key">auto</string>
+</map>

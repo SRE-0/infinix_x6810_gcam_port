@@ -1,0 +1,6 @@
+id=x6810_gcam_startup
+name=X6810 GCam privileged system installer
+version=0.7.0
+versionCode=9
+author=X6810 camera project
+description=Installs original signed BSG 9.7 V32 as a privileged system app with all 21 ARM64 libraries and the native cache fix. Grants declared runtime, privileged and special accesses; preserves existing app data. Separate from RAW.

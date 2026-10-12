@@ -1,0 +1,139 @@
+{
+  "package": "com.android.MGC_9_7_047",
+  "version": "9.7.047.702121536.18",
+  "status": "experimental; image-quality validation pending",
+  "sensors": {
+    "main": {
+      "sensor": "S5KGM1ST",
+      "camera_id": "0",
+      "raw_size": "4000x3000",
+      "intent": "Experimental texture candidate; noise-model factors verified in process memory, photographic benefit not yet conclusive.",
+      "preferences": {
+        "LumaScale_fmov_3f80_0000_pthcr_key_0": "0.875",
+        "LumaOffset_fmov_3f80_0000_pthcr_key_0": "1.0",
+        "ChromaScale_fmov_3f80_0000_pthcr_key_0": "1.125",
+        "ChromaOffset_fmov_3f80_0000_pthcr_key_0": "1.0"
+      },
+      "variants": {
+        "night": {
+          "status": "Night Sight capture and preference application verified; neutral noise factors retained because trials did not establish a repeatable improvement.",
+          "capture_recommendations": {
+            "mode": "Night Sight",
+            "focus": "autofocus",
+            "motion": "Static scene; keep device steady during multiframe capture.",
+            "color": "Preserve existing calibration; no measured color-target correction.",
+            "awb": "System AWB by default; Google AWB comparison cools mixed-light shadows. No calibrated color improvement established.",
+            "scope": "Noise factors also affect Photo; pref_camera_gawb_b_ns and pref_af_mode_back are shared rear settings. Night Sight must be selected in the UI."
+          },
+          "preferences": {
+            "LumaScale_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "LumaOffset_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "ChromaScale_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "ChromaOffset_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "pref_camera_gawb_b_ns": "0",
+            "pref_af_mode_back": "0"
+          }
+        },
+        "night-google-awb": {
+          "status": "Optional colder rendering under mixed illumination; color accuracy not calibrated.",
+          "capture_recommendations": {
+            "mode": "Night Sight",
+            "focus": "autofocus",
+            "motion": "Static scene; keep device steady during multiframe capture.",
+            "color": "Preserve existing calibration; no measured color-target correction.",
+            "awb": "System AWB by default; Google AWB comparison cools mixed-light shadows. No calibrated color improvement established.",
+            "scope": "Noise factors also affect Photo; pref_camera_gawb_b_ns and pref_af_mode_back are shared rear settings. Night Sight must be selected in the UI."
+          },
+          "preferences": {
+            "LumaScale_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "LumaOffset_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "ChromaScale_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "ChromaOffset_fmov_3f80_0000_pthcr_key_0": "1.0",
+            "pref_camera_gawb_b_ns": "1",
+            "pref_af_mode_back": "0"
+          }
+        }
+      }
+    },
+    "tele": {
+      "sensor": "OV08A10",
+      "camera_id": "2",
+      "raw_size": "3264x2448",
+      "status": "Daylight and Night Sight capture verified; neutral noise factors retained because isolated photographic improvements remain unproven.",
+      "intent": "Daylight base: preserve neutral noise factors; use verified HDR+ enhanced and autofocus controls for static distant subjects.",
+      "capture_recommendations": {
+        "hdr_plus": "enhanced for static scenes; normal for motion",
+        "focus": "autofocus; infinity lock rejected on the tested module",
+        "awb": "system for the tested daylight scene; Google AWB remains an optional comparison",
+        "scope": "These UI controls are shared app settings and are not implicitly written by the sensor overlay."
+      },
+      "preferences": {
+        "LumaScale_fmov_3f80_0000_pthcr_key_2": "1.0",
+        "LumaOffset_fmov_3f80_0000_pthcr_key_2": "1.0",
+        "ChromaScale_fmov_3f80_0000_pthcr_key_2": "1.0",
+        "ChromaOffset_fmov_3f80_0000_pthcr_key_2": "1.0"
+      },
+      "variants": {
+        "detail": {
+          "status": "Experimental; verified patch application, no isolated photographic improvement demonstrated.",
+          "preferences": {
+            "LumaScale_fmov_3f80_0000_pthcr_key_2": "0.875",
+            "LumaOffset_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "ChromaScale_fmov_3f80_0000_pthcr_key_2": "1.125",
+            "ChromaOffset_fmov_3f80_0000_pthcr_key_2": "1.0"
+          }
+        },
+        "night": {
+          "status": "Night Sight capture and preference application verified; neutral noise factors retained because trials did not establish a repeatable improvement.",
+          "capture_recommendations": {
+            "mode": "Night Sight",
+            "focus": "autofocus",
+            "motion": "Static scene; keep device steady during multiframe capture.",
+            "color": "Preserve existing calibration; no measured color-target correction.",
+            "awb": "System AWB by default; Google AWB comparison cools mixed-light shadows. No calibrated color improvement established.",
+            "scope": "Noise factors also affect Photo; pref_camera_gawb_b_ns and pref_af_mode_back are shared rear settings. Night Sight must be selected in the UI."
+          },
+          "preferences": {
+            "LumaScale_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "LumaOffset_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "ChromaScale_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "ChromaOffset_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "pref_camera_gawb_b_ns": "0",
+            "pref_af_mode_back": "0"
+          }
+        },
+        "night-google-awb": {
+          "status": "Optional colder rendering under mixed illumination; color accuracy not calibrated.",
+          "capture_recommendations": {
+            "mode": "Night Sight",
+            "focus": "autofocus",
+            "motion": "Static scene; keep device steady during multiframe capture.",
+            "color": "Preserve existing calibration; no measured color-target correction.",
+            "awb": "System AWB by default; Google AWB comparison cools mixed-light shadows. No calibrated color improvement established.",
+            "scope": "Noise factors also affect Photo; pref_camera_gawb_b_ns and pref_af_mode_back are shared rear settings. Night Sight must be selected in the UI."
+          },
+          "preferences": {
+            "LumaScale_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "LumaOffset_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "ChromaScale_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "ChromaOffset_fmov_3f80_0000_pthcr_key_2": "1.0",
+            "pref_camera_gawb_b_ns": "1",
+            "pref_af_mode_back": "0"
+          }
+        }
+      }
+    },
+    "front": {
+      "sensor": "HI1631Q",
+      "camera_id": "1",
+      "raw_size": "2320x1744",
+      "intent": "Conservative binned candidate; preserve natural texture and existing color calibration.",
+      "preferences": {
+        "LumaScale_fmov_3f80_0000_pthcr_key_1": "1.0",
+        "LumaOffset_fmov_3f80_0000_pthcr_key_1": "1.0",
+        "ChromaScale_fmov_3f80_0000_pthcr_key_1": "1.125",
+        "ChromaOffset_fmov_3f80_0000_pthcr_key_1": "1.0"
+      }
+    }
+  }
+}

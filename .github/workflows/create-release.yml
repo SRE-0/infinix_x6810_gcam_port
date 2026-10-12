@@ -1,0 +1,43 @@
+name: Release GCam system module
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Unique release tag
+        required: true
+        type: string
+      apk_url:
+        description: HTTPS URL for the original signed BSG V32 APK (SHA-256 verified)
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  release:
+    if: github.repository_owner == 'SRE-0' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/validate.py
+      - name: Obtain original APK and build
+        env:
+          APK_URL: ${{ inputs.apk_url }}
+        run: |
+          [[ "$APK_URL" == https://* ]] || exit 1
+          mkdir -p dist/inputs
+          curl --fail --location --proto '=https' --proto-redir '=https' --max-time 600 "$APK_URL" -o dist/inputs/original.apk
+          python scripts/build.py --apk dist/inputs/original.apk
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          [[ "$RELEASE_TAG" =~ ^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$ ]] || exit 1
+          gh release create "$RELEASE_TAG" dist/releases/* --target "$GITHUB_SHA" --title "$RELEASE_TAG" --notes-file .github/RELEASE_NOTES.md
