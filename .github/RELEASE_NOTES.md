@@ -1,12 +1,14 @@
-# X6810 GCam system module and profile — v0.7.0
+# X6810 GCam system module and profile — v0.8.0
 
 [English](README.md) · [Español](docs/es/README.md) · [RAW/OIS/flash project](https://github.com/SRE-0/infinix_x6810_raw)
 
 This release contains the optional APatch system module for the Infinix Zero X Neo X6810-GL and the recommended BSG V32 settings profile.
 
+Installer now derives from `template-module`: SRE-0 banner, module metadata, manager detection, numbered checks and closing footer. Existing payloads and admission checks are preserved.
+
 ## Downloads
 
-- `x6810-gcam-system-0.7.0.zip` — system module with the original signed BSG 9.7 V32 APK and separate native cache-library fix.
+- `x6810-gcam-system-0.8.0.zip` — system module with the original signed BSG 9.7 V32 APK and separate native cache-library fix.
 - `x6810-gcam-bsg-9.7-v32-recommended.xml` — the supplied profile, renamed for this project and preserved byte for byte.
 - `SHA256SUMS.txt` and `releases.json` — verify and identify the downloads.
 
@@ -49,9 +51,11 @@ Experimental software, provided as-is without warranties to the fullest extent p
 
 Esta versión incluye el módulo opcional de sistema APatch para Infinix Zero X Neo X6810-GL y el perfil recomendado de BSG V32.
 
+El instalador deriva de `template-module`: banner SRE-0, metadatos, detecci?n del gestor, pasos numerados y cierre. Se conservan los payloads y controles de compatibilidad.
+
 ## Descargas
 
-- `x6810-gcam-system-0.7.0.zip`: módulo de sistema con el APK BSG 9.7 V32 original y firmado, y un arreglo de caché nativo separado.
+- `x6810-gcam-system-0.8.0.zip`: módulo de sistema con el APK BSG 9.7 V32 original y firmado, y un arreglo de caché nativo separado.
 - `x6810-gcam-bsg-9.7-v32-recommended.xml`: ajustes aportados, renombrados para el proyecto y conservados byte por byte.
 - `SHA256SUMS.txt` y `releases.json`: verifican e identifican las descargas.
 

@@ -4,6 +4,11 @@ import hashlib
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import zipfile
+import sys
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT / 'scripts'))
+from module_template import render_installer
 
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('apk', type=Path)
@@ -63,7 +68,13 @@ with zipfile.ZipFile(a.output, 'w', compression=zipfile.ZIP_DEFLATED, compressle
         'system/etc/permissions/privapp-permissions-x6810-gcam.xml',
         'permissions.sh',
     ):
-        data = Path(__file__).parent.joinpath(*name.split('/')).read_bytes().replace(b'\r\n', b'\n')
+        if name == 'customize.sh':
+            metadata = dict(line.split('=', 1) for line in Path(__file__).with_name('module.prop').read_text().splitlines() if '=' in line)
+            data = render_installer(PROJECT_ROOT, metadata['name'], metadata['version'],
+                'https://github.com/SRE-0/infinix_x6810_gcam_port',
+                Path(__file__).with_name('customize.sh').read_text()).encode()
+        else:
+            data = Path(__file__).parent.joinpath(*name.split('/')).read_bytes().replace(b'\r\n', b'\n')
         info = zipfile.ZipInfo(name)
         info.create_system = 3
         info.external_attr = (0o100755 if name.endswith('.sh') else 0o100644)<<16

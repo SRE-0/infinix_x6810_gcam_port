@@ -27,3 +27,5 @@ The resulting ZIP, recommended XML and SHA-256 manifest go to `dist/releases/`. 
 The builder retains the original APK intact and extracts its 21 ARM64 libraries, replacing only the separately mounted `libgcastartup.so`. The native SHA-256 is `64cfcb3f598cdf3e75875bdd4cb8e8775a6763be15c3d2240d1d7ee0656f053a`. APK integrity, XML permissions, native inventory and final ZIP are checked. The profile validator checks all 755 unique keys and enabled photo OIS.
 
 Do not commit decoded APK resources, DEX, smali or JADX output. Standalone smali helper files were removed from repository history; Python tools generate the project's own instrumentation helpers locally. Follow [local decompilation](DECOMPILATION.md). Historical tools can require Apktool, Frida, ADB, target firmware and missing local data; some alter device state and are not run by release builds. [Legal review](LEGAL.md).
+
+Installer presentation is derived at build time from `template-module/customize.sh` by `scripts/module_template.py`. Module-specific checks and boot scripts remain owned by their project.

@@ -1,8 +1,10 @@
 #!/system/bin/sh
+print_step 1 3 "Checking device and Android version"
 [ "$(getprop ro.product.device)" = Infinix-X6810 ] || abort "Infinix X6810 required"
 [ "$(getprop ro.build.version.sdk)" -ge 30 ] || abort "Android 11 or newer required"
 
 # Refuse an incompatible installed APK rather than silently shadowing it.
+print_step 2 3 "Verifying original and installed APK"
 PACKAGE=com.android.MGC_9_7_047
 EXPECTED=132e18273b3aafdb93e851f5db88156bd4f82c5032ad8de6594fa5a49ea6fe89
 PAYLOAD="$MODPATH/system/priv-app/X6810GCam/X6810GCam.apk"
@@ -17,9 +19,11 @@ if [ -n "$installed" ]; then
     esac
 fi
 # APatch mounts priv-app and permission XML before PackageManager scans apps.
+print_step 3 3 "Setting overlay and permissions"
 rm -f "$MODPATH/skip_mount"
 set_perm_recursive "$MODPATH/system" 0 0 0755 0644 u:object_r:system_file:s0
 for script in activate.sh service.sh uninstall.sh permissions.sh; do
     set_perm "$MODPATH/$script" 0 0 0755
 done
 set_perm "$MODPATH/customize.sh" 0 0 0755
+ui_print "- Installation complete. Reboot required."

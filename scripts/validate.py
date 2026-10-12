@@ -53,7 +53,7 @@ def main():
     if preferences['camera.ois_forced_photo_mode'].get('value') != 'true':
         raise ValueError('Recommended V32 photo OIS must be enabled')
     metadata = dict(line.split('=', 1) for line in (module / 'module.prop').read_text().splitlines() if '=' in line)
-    if metadata['id'] != 'x6810_gcam_startup' or metadata['version'] != '0.7.0':
+    if metadata['id'] != 'x6810_gcam_startup' or metadata['version'] != '0.8.0':
         raise ValueError('Unexpected module identity')
     print(f'PASS: {count} Python sources, signed APK/native SHA-256, embedded notices, no tracked decoded artifacts, permission XML, historical V18 and recommended V32 profiles. No device validation.')
 
