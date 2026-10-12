@@ -26,6 +26,9 @@ def main():
             data = (notices / record['file']).read_bytes()
             if data != archive.read(record['apk_resource']) or hashlib.sha256(data).hexdigest() != record['sha256']:
                 raise ValueError('APK license resource changed')
+            staged = subprocess.check_output(['git', '-c', f'safe.directory={ROOT.as_posix()}', '-C', str(ROOT), 'show', ':legal/gcam-apk/' + record['file']])
+            if staged != data:
+                raise ValueError('Git changed license-resource bytes; preserve -text attributes and restage exact resources')
     count = 0
     for directory in ('scripts', 'tools', 'gcam'):
         for p in (ROOT / directory).rglob('*.py'):
